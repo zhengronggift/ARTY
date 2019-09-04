@@ -1,4 +1,16 @@
+Reminder: please spend 5 minutes by the end of each coding session to document each 
+function or class (what do they do, what kind logic behind each loop). 
+
+If using class (Object oriented programming), please have one parent class that contains
+the basic structure, the child class inherits the parent. All the new modules or functions 
+should be add under child class. 
+
+Have user stories and plan out the code patterns (initialize, execute, and other helper 
+functions), debug it before test it on hardwares by use print to the screen.
+
+
 Documentation for C on Arduino
+
 -Work with Bluetooth, 2 motors, and 1 L293D chip
 
 /*Set up the input, output, and enable pins for L293D chip
@@ -26,6 +38,13 @@ void loop()
 
 Documentation for Python on Raspberry Pi
 -Work with Speaker, Arduino, will add as we go (ie.budget)
+-Will be responsible for the "memory part" of the project 
+
+
+#setup Python to work with C
+def execute_arduino():
+
+	return data
 
 #setup Speaker
 def speaker():
@@ -41,7 +60,6 @@ def gpio_output():
 def bluetooth_receive_transmission():
 
 	return data
-
 
 #main code body
 
