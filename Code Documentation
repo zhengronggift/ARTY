@@ -1,0 +1,27 @@
+Code documentation for C on Arduino
+-Work with Bluetooth, 2 motors, and 1 L293D chip
+
+/*Set up the input, output, and enable pins for L293D chip
+*put enable pins to High to activatie the chip
+*and set up Bluetooth communication (UART) to 9600 Baudrate
+*/
+
+void setup()
+{
+}
+
+/*
+*Receive command from cellphone or other Bluetooth controller (L, R, F, S)
+*L-left, R-right, F-forward, S-stop
+*Once command received, send out action to the output pins
+*Send the current action as a message to the controller
+*Use flag to indicate if the action has been done, so we don't get 
+*into dead loop, ie, keep sending "turn right"
+*/
+
+void loop()
+{
+
+}
+
+
