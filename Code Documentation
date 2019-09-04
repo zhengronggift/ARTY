@@ -1,4 +1,4 @@
-Code documentation for C on Arduino
+Documentation for C on Arduino
 -Work with Bluetooth, 2 motors, and 1 L293D chip
 
 /*Set up the input, output, and enable pins for L293D chip
@@ -24,4 +24,30 @@ void loop()
 
 }
 
+Documentation for Python on Raspberry Pi
+-Work with Speaker, Arduino, will add as we go (ie.budget)
 
+#setup Speaker
+def speaker():
+
+	return data
+
+#setup GPIO (will need to change the function name based on output pins)
+def gpio_output():
+	
+	return data
+
+#setup bluetooth
+def bluetooth_receive_transmission():
+
+	return data
+
+
+#main code body
+
+#get the bluetooth address
+#open socket to listen for commands
+#if received command or sensor values, speaker will output the message
+#use flag to indicate the action was done, so no dead loop (ie. speaker 
+#repeat messages)
+#close bluetooth socket
