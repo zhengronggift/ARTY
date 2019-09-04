@@ -7,6 +7,12 @@ int enable2Pin = 7; // pin 9 on L293D IC
 int state;
 int flag=0;        //makes sure that the serial only prints once the state
 int stateStop=0;
+
+/*Set up the input, output, and enable pins for L293D chip
+*put enable pins to High to activatie the chip
+*and set up Bluetooth communication (UART) to 9600 Baudrate
+*/
+
 void setup() {
     // sets the pins as outputs:
     pinMode(motor1Pin1, OUTPUT);
@@ -21,6 +27,15 @@ void setup() {
     // initialize serial communication at 9600 bits per second:
     Serial.begin(9600);
 }
+
+/*
+*Receive command from cellphone or other Bluetooth controller (L, R, F, S)
+*L-left, R-right, F-forward, S-stop
+*Once command received, send out action to the output pins
+*Send the current action as a message to the controller
+*flag will indicate if the action has been done, so we don't get 
+*into dead loop, ie, keep sending "turn right"
+*/
 
 void loop() {
     //if some date is sent, reads it and saves in state
