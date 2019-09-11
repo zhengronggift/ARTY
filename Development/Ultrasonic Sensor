@@ -5,6 +5,7 @@ void setup() {
    Serial.begin(9600); // Starting Serial Terminal
 }
 
+//setup input and output, get readings (speed of sound) and output the distance
 void loop() {
    long duration, inches, cm;
    pinMode(pingPin, OUTPUT);
@@ -25,10 +26,12 @@ void loop() {
    delay(100);
 }
 
+//convert to inch
 long microsecondsToInches(long microseconds) {
    return microseconds / 74 / 2;
 }
 
+//convert to cm
 long microsecondsToCentimeters(long microseconds) {
    return microseconds / 29 / 2;
 }
