@@ -8,19 +8,16 @@ should be add under child class.
 Have user stories and plan out the code patterns (initialize, execute, and other helper 
 functions), debug it before test it on hardwares by use print to the screen.
 
-
-Documentation for C on Arduino
-
--Work with Bluetooth, 2 motors, and 1 L293D chip
+**********************************
+**Documentation for C on Arduino**
+**********************************
+-Work with Bluetooth, Ultrasonic sensor, 2 motors, and 1 L293D chip
 
 /*Set up the input, output, and enable pins for L293D chip
 *put enable pins to High to activatie the chip
 *and set up Bluetooth communication (UART) to 9600 Baudrate
 */
-
-void setup()
-{
-}
+void setup(){}
 
 /*
 *Receive command from cellphone or other Bluetooth controller (L, R, F, S)
@@ -30,35 +27,44 @@ void setup()
 *Use flag to indicate if the action has been done, so we don't get 
 *into dead loop, ie, keep sending "turn right"
 */
+void loop(){}
 
-void loop()
-{
+/*Function to control the motor
+ *It takes the state that receive from the bluetooth
+ *send output to the pins based on the state
+ */
+void motor(int state){}
 
-}
+//get distance reading from ultrasonic device
+long dist() {}
 
-Documentation for Python on Raspberry Pi
+//convert to inch
+long microsecondsToInches(long microseconds){}
+
+//convert to cm
+long microsecondsToCentimeters(long microseconds){}
+
+
+********************************************
+**Documentation for Python on Raspberry Pi**
+********************************************
 -Work with Speaker, Arduino, will add as we go (ie.budget)
 -Will be responsible for the "memory part" of the project 
 
-
 #setup Python to work with C
 def execute_arduino():
-
 	return data
 
 #setup Speaker
 def speaker():
-
 	return data
 
 #setup GPIO (will need to change the function name based on output pins)
 def gpio_output():
-	
 	return data
 
 #setup bluetooth
 def bluetooth_receive_transmission():
-
 	return data
 
 #main code body
