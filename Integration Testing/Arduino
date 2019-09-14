@@ -1,0 +1,180 @@
+int motor1Pin1 = 3; // pin 2 on L293D IC
+int motor1Pin2 = 5; // pin 7 on L293D IC
+int enable1Pin = 2; // pin 1 on L293D IC
+int motor2Pin1 = 4; // pin 10 on L293D IC
+int motor2Pin2 = 6; // pin 15 on L293D IC
+int enable2Pin = 7; // pin 9 on L293D IC
+int pingPin = 9; // Trigger Pin of Ultrasonic Sensor
+int echoPin = 8; // Echo Pin of Ultrasonic Sensor
+long distance; 
+int state;
+int flag=0;        //makes sure that the serial only prints once the state
+int stateStop=0;
+/*Set up the input, output, and enable pins for L293D chip
+*put enable pins to High to activatie the chip
+*and set up Bluetooth communication (UART) to 9600 Baudrate
+*/
+
+void setup() {
+    // sets the pins as outputs:
+    pinMode(motor1Pin1, OUTPUT);
+    pinMode(motor1Pin2, OUTPUT);
+    pinMode(enable1Pin, OUTPUT);
+    pinMode(motor2Pin1, OUTPUT);
+    pinMode(motor2Pin2, OUTPUT);
+    pinMode(enable2Pin, OUTPUT);
+    // sets enable1Pin and enable2Pin high so that motor can turn on:
+    digitalWrite(enable1Pin, HIGH);
+    digitalWrite(enable2Pin, HIGH);
+    // initialize serial communication at 9600 bits per second:
+    Serial.begin(9600);
+}
+
+/*
+*Receive command from cellphone or other Bluetooth controller (L, R, F, S)
+*L-left, R-right, F-forward, S-stop
+*Once command received, send out action to the output pins
+*Send the current action as a message to the controller
+*flag will indicate if the action has been done, so we don't get 
+*into dead loop, ie, keep sending "turn right"
+*/
+
+void loop() {
+    distance = dist(); //get the distance in cm
+    //if getting to close, less than 10cm, motors stop
+    
+    if (distance <= 10)
+    {
+      state = 'S';
+      stateStop = 1;
+      //send commands to the motor
+      motor(state);
+    }
+    
+    //if data is received, reads it and saves in state
+    if(Serial.available() > 0){     
+      state = Serial.read();   
+      flag=0;
+    }  
+    
+    //send commands to the motor
+    motor(state);
+}
+
+/*Function to control the motor
+ *It takes the state that receive from the bluetooth
+ *send output to the pins based on the state
+ */
+void motor(int state){
+    // if the state is 'F' the DC motor will go forward
+    // set flag to 1
+    if (state == 'F') {
+        digitalWrite(motor1Pin1, HIGH);
+        digitalWrite(motor1Pin2, LOW); 
+        digitalWrite(motor2Pin1, LOW);
+        digitalWrite(motor2Pin2, HIGH);
+        if(flag == 0){
+          Serial.println("Go Forward!");
+          Serial.println(distance);
+          Serial.println("cm");
+          flag=1;
+        }
+    }
+    
+    // if the state is 'R' the motor will turn left
+    else if (state == 'R') {
+        digitalWrite(motor1Pin1, HIGH); 
+        digitalWrite(motor1Pin2, LOW); 
+        digitalWrite(motor2Pin1, LOW);
+        digitalWrite(motor2Pin2, LOW);
+        if(flag == 0){
+          Serial.println("Turn LEFT");
+          Serial.println(distance);
+          Serial.println("cm");
+          flag=1;
+        }
+        delay(1500);
+        state= 'F';
+        stateStop=1;
+    }
+    // if the state is 'S' the motor will Stop
+    else if (state == 'S' || stateStop == 1) {
+        digitalWrite(motor1Pin1, LOW); 
+        digitalWrite(motor1Pin2, LOW); 
+        digitalWrite(motor2Pin1, LOW);
+        digitalWrite(motor2Pin2, LOW);
+        if(flag == 0){
+          Serial.println("STOP!");
+          Serial.println(distance);
+          Serial.println("cm");
+          flag=1;
+        }
+        stateStop=0;
+    }
+    // if the state is 'L' the motor will turn right
+    else if (state == 'L') {
+        digitalWrite(motor1Pin1, LOW); 
+        digitalWrite(motor1Pin2, LOW); 
+        digitalWrite(motor2Pin1, LOW);
+        digitalWrite(motor2Pin2, HIGH);
+        if(flag == 0){
+          Serial.println("Turn RIGHT");
+          Serial.println(distance);
+          Serial.println("cm");
+          flag=1;
+        }
+        delay(1500);
+        state='F';
+        stateStop=1;
+        Serial.println(distance);
+        Serial.println("cm");
+    }
+    
+    // if the state is 'B' the motor will Reverse
+    else if (state == 'B') {
+        digitalWrite(motor1Pin1, LOW); 
+        digitalWrite(motor1Pin2, HIGH);
+        digitalWrite(motor2Pin1, HIGH);
+        digitalWrite(motor2Pin2, LOW);
+        if(flag == 0){
+          Serial.println("Reverse!");
+          flag=1;
+          Serial.println(distance);
+          Serial.println("cm");
+        }
+    }
+    //For debugging purpose
+    //Serial.println(state);
+}
+
+//get distance reading from ultrasonic device
+long dist() {
+   long duration, inches, cm;
+   pinMode(pingPin, OUTPUT);
+   digitalWrite(pingPin, LOW);
+   delayMicroseconds(2);
+   digitalWrite(pingPin, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(pingPin, LOW);
+   pinMode(echoPin, INPUT);
+   duration = pulseIn(echoPin, HIGH);
+   inches = microsecondsToInches(duration);
+   cm = microsecondsToCentimeters(duration);
+   //Serial.print(inches);
+   //Serial.print("in, ");
+   //Serial.print(cm);
+   //Serial.print("cm");
+   //Serial.println();
+   delay(100);
+   return cm;
+}
+
+//convert to inch
+long microsecondsToInches(long microseconds) {
+   return microseconds / 74 / 2;
+}
+
+//convert to cm
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
+}
