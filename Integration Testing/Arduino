@@ -35,8 +35,7 @@ void setup() {
 *L-left, R-right, F-forward, S-stop
 *Once command received, send out action to the output pins
 *Send the current action as a message to the controller
-*flag will indicate if the action has been done, so we don't get 
-*into dead loop, ie, keep sending "turn right"
+*flag will indicate if the action has been done
 */
 
 void loop() {
@@ -74,8 +73,8 @@ void motor(int state){
         digitalWrite(motor2Pin1, LOW);
         digitalWrite(motor2Pin2, HIGH);
         if(flag == 0){
-          Serial.println("Go Forward!");
-          Serial.println(distance);
+          Serial.print("Go Forward! Distance: ");
+          Serial.print(distance);
           Serial.println("cm");
           flag=1;
         }
@@ -88,8 +87,8 @@ void motor(int state){
         digitalWrite(motor2Pin1, LOW);
         digitalWrite(motor2Pin2, LOW);
         if(flag == 0){
-          Serial.println("Turn LEFT");
-          Serial.println(distance);
+          Serial.print("Turn LEFT! Distance: ");
+          Serial.print(distance);
           Serial.println("cm");
           flag=1;
         }
@@ -104,8 +103,8 @@ void motor(int state){
         digitalWrite(motor2Pin1, LOW);
         digitalWrite(motor2Pin2, LOW);
         if(flag == 0){
-          Serial.println("STOP!");
-          Serial.println(distance);
+          Serial.print("STOP! Distance: ");
+          Serial.print(distance);
           Serial.println("cm");
           flag=1;
         }
@@ -118,16 +117,14 @@ void motor(int state){
         digitalWrite(motor2Pin1, LOW);
         digitalWrite(motor2Pin2, HIGH);
         if(flag == 0){
-          Serial.println("Turn RIGHT");
-          Serial.println(distance);
+          Serial.print("Turn RIGHT! Distance: ");
+          Serial.print(distance);
           Serial.println("cm");
           flag=1;
         }
         delay(1500);
         state='F';
         stateStop=1;
-        Serial.println(distance);
-        Serial.println("cm");
     }
     
     // if the state is 'B' the motor will Reverse
@@ -137,9 +134,9 @@ void motor(int state){
         digitalWrite(motor2Pin1, HIGH);
         digitalWrite(motor2Pin2, LOW);
         if(flag == 0){
-          Serial.println("Reverse!");
+          Serial.print("Reverse! Distance: ");
           flag=1;
-          Serial.println(distance);
+          Serial.print(distance);
           Serial.println("cm");
         }
     }
