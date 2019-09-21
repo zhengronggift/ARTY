@@ -47,7 +47,13 @@ Click Ok
 
 Start the virtual PC
 
-Follow the installation prompt, this should set up a Rasbian OS in your virtual box 
+At the prompt, select Install and Enter
+
+Choose "Guided – use the entire disk" 
+
+Keep pressing Enter to "Select disk to partition", choose the Partitioning scheme, and "Finish partitioning and write changes to disk".
+
+After a while, at the prompt “Install the GRUB boot loader to the master boot record?” Select Yes, and choose /dev/sda.
 
 Enjoy :)
 
