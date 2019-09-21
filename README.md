@@ -24,6 +24,7 @@ https://www.virtualbox.org/
 
 ### 3. Setup Virtual Box:
 
+```
 Open Virtual Box, click new
 
 Give your virtual PC a name, Type Linux, Version Debian (32GB)
@@ -49,6 +50,8 @@ Start the virtual PC
 Follow the installation prompt, this should set up a Rasbian OS in your virtual box 
 
 Enjoy :)
+
+```
 
 Please use the Rasbian OS to create and test the codes.
 
