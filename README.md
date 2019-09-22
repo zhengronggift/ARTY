@@ -67,4 +67,4 @@ Please use the Rasbian OS to create and test the codes.
 
 Once done, upload the code to github. 
 
-Your virtual PC has same enviroment as the Raspberry Pi, so the code should work the same as on the actual Pi. 
+The virtual PC has same enviroment as the Raspberry Pi, so the code should work the same as on the actual Pi. 
