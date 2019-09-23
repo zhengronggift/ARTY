@@ -62,9 +62,3 @@ Select Yes, and choose /dev/sda.
 Enjoy :)
 
 ```
-
-Please use the Rasbian OS to create and test the codes.
-
-Once done, upload the code to github. 
-
-The virtual PC has same enviroment as the Raspberry Pi, so the code should work the same as on the actual Pi. 
