@@ -27,7 +27,7 @@ https://www.virtualbox.org/
 ```
 Open Virtual Box, click new
 
-Give your virtual PC a name, Type Linux, Version Debian (32GB)
+Give your virtual PC a name, Type Linux, Version Debian (64GB)
 
 Give a memory size you like
 
