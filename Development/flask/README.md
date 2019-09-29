@@ -21,5 +21,5 @@
 # Set up Pi as gunicorn and nginx server
 ### https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 
-# Extract GPS location through browser
-### https://www.w3schools.com/html/html5_geolocation.asp
+# Extract GPS location
+### git@github.com:slawek87/geolocation-python.git
