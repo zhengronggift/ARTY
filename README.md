@@ -59,6 +59,10 @@ After a while, at the prompt “Install the GRUB boot loader to the master boot 
 
 Select Yes, and choose /dev/sda.
 
+### 4. To access network:
+
+In Setting, set the network type to Bridge, click advanced, for promiscous mode, select "Allow VMs"
+
 Enjoy :)
 
 ```
