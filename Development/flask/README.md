@@ -15,8 +15,8 @@
 # Raspberry Pi web server:
 ### https://www.e-tinkers.com/2018/04/how-to-control-raspberry-pi-gpio-via-http-web-server/
 
-# Set up Pi with apache2 server
+# Set up Pi as apache2 server
 ### https://www.youtube.com/watch?v=Vd2aLTZDLQg
 
-# Set up Pi with gunicorn and nginx server
+# Set up Pi as gunicorn and nginx server
 ### https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
