@@ -1,0 +1,61 @@
+sudo apt update
+sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
+sudo apt install python3-venv
+sudo apt install ufw
+mkdir ~/myproject
+cd ~/myproject
+python3.6 -m venv myprojectenv
+source myprojectenv/bin/activate
+pip install wheel
+pip install gunicorn flask
+pip install flask-bootstrap
+pip install gevent
+sudo ufw allow 5000
+cd ~/myproject
+python myproject.py
+gunicorn --bind 0.0.0.0:5000 wsgi:app
+deactivate
+sudo nano /etc/systemd/system/myproject.service
+
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=pi
+Group=www-data
+WorkingDirectory=/home/pi/myproject
+Environment="PATH=/home/pi/myproject/myprojectenv/bin"
+ExecStart=/home/pi/myproject/myprojectenv/bin/gunicorn --workers 3 --bind unix:myproject.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl start myproject
+sudo systemctl enable myproject
+sudo systemctl status myproject
+sudo nano /etc/nginx/sites-available/myproject
+
+server {
+    listen 80;
+    server_name ip;
+
+    location /static/ {
+	root /home/rong/myproject;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/rong/myproject/myproject.sock;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
+
+sudo nginx -t
+sudo systemctl restart nginx
+sudo ufw delete allow 5000
+sudo ufw allow http/tcp
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+
