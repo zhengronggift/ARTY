@@ -14,6 +14,28 @@ npm init
 npm install express
 npm install socket.io
 npm install ejs
-node index.js
+
 npm i nodemon -g
 nodemon server.js
+
+sudo nano /etc/nginx/sites-enabled/default
+
+upstream project {
+        server IP&PORT;
+	#server IP&PORT;
+	#server IP&PORT;
+}
+
+server {
+        listen 80;
+        location / {
+                proxy_pass http://project;
+        }
+}
+
+sudo service nginx start 
+sudo service nginx reload
+
+more details:
+https://www.youtube.com/watch?v=FJrs0Ar9asY
+
