@@ -1,77 +1,31 @@
-Reminder: please spend 5 minutes by the end of each coding session to document each 
-function or class (what do they do, what kind logic behind each loop). 
+10/7/19
+**********************************
+**Documentation for C on Arduino**
+**********************************
 
-If using class (Object oriented programming), please have one parent class that contains
-the basic structure, the child class inherits the parent. All the new modules or functions 
-should be add under child class. 
+-Removed Bluetooth, Ultrasonic sensor due to waterproof concerns
+-Added in RC Receiver module to the unit for remote control
 
-Have user stories and plan out the code patterns (initialize, execute, and other helper 
-functions), debug it before test it on hardwares by use print to the screen.
+********************************************
+**Documentation for NodeJS on Raspberry Pi**
+********************************************
+
+-Set up Nginx to host NodeJS as reverse proxy
+-Will not be using Python due to CPU concern (need the Pi to focus on user interface)
+-Planning on add camera module
+-Making the Pi communicate with Arduino through NodeJS
+
+9/4/19
 
 **********************************
 **Documentation for C on Arduino**
 **********************************
+
 -Work with Bluetooth, Ultrasonic sensor, 2 motors, and 1 L293D chip
-
-/*Set up the input, output, and enable pins for L293D chip
-*put enable pins to High to activatie the chip
-*and set up Bluetooth communication (UART) to 9600 Baudrate
-*/
-void setup(){}
-
-/*
-*Receive command from cellphone or other Bluetooth controller (L, R, F, S)
-*L-left, R-right, F-forward, S-stop
-*Once command received, send out action to the output pins
-*Send the current action as a message to the controller
-*Use flag to indicate if the action has been done, so we don't get 
-*into dead loop, ie, keep sending "turn right"
-*/
-void loop(){}
-
-/*Function to control the motor
- *It takes the state that receive from the bluetooth
- *send output to the pins based on the state
- */
-void motor(int state){}
-
-//get distance reading from ultrasonic device
-long dist() {}
-
-//convert to inch
-long microsecondsToInches(long microseconds){}
-
-//convert to cm
-long microsecondsToCentimeters(long microseconds){}
-
 
 ********************************************
 **Documentation for Python on Raspberry Pi**
 ********************************************
+
 -Work with Speaker, Arduino, will add as we go (ie.budget)
 -Will be responsible for the "memory part" of the project 
-
-#setup Python to work with C
-def execute_arduino():
-	return data
-
-#setup Speaker
-def speaker():
-	return data
-
-#setup GPIO (will need to change the function name based on output pins)
-def gpio_output():
-	return data
-
-#setup bluetooth
-def bluetooth_receive_transmission():
-	return data
-
-#main code body
-
-#get the bluetooth address
-#open socket to listen for commands
-#if received command or sensor values, speaker will output the message
-#use flag to indicate the action was done, so no dead loop (ie. speaker 
-#repeat messages)
-#close bluetooth socket
