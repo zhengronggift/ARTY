@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ARTY's Chat Room</title>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -34,37 +40,20 @@
   <body>
     <ul id="messages"></ul>
 
-	<h1>Control LED light</h1>
-	<input id="light" type="checkbox">LED
+	<div class="container">
+		<div class="panel panel-default">
+    <div class="panel-body">Control Room</div>
 
-    <form action="/" method="POST" id="chatForm">
-      <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
+		<img class="img-rounded"> <br>
+		<button type="button" class="btn btn-success">Left</button>
+		<button type="button" class="btn btn-success">Right</button>
+  		<button type="button" class="btn btn-success">Forward</button>
+		<button type="button" class="btn btn-success">Stop</button>
+		<button type="button" class="btn btn-success">Alarm</button>
+	</div>
     </form>
     <script>
             var socket = io.connect('http://localhost:8080');
-
-            // submit text message without reload/refresh the page
-            $('form').submit(function(e){
-                e.preventDefault(); // prevents page reloading
-                socket.emit('chat_message', $('#txt').val());
-                $('#txt').val('');
-                return false;
-            });
-
-            // append the chat text message
-            socket.on('chat_message', function(msg){
-                $('#messages').append($('<li>').html(msg));
-            });
-
-            // append text if someone is online
-            socket.on('is_online', function(username) {
-                $('#messages').append($('<li>').html(username));
-            });
-
-            // ask username
-            var username = prompt('Please tell me your name');
-            socket.emit('username', username);
-
     </script>
   </body>
 </html>

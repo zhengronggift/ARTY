@@ -23,3 +23,7 @@
 
 # Extract GPS location
 ### git@github.com:slawek87/geolocation-python.git
+
+# Accelerometer and Gyroscope info 
+### https://developers.google.com/web/updates/2017/09/sensors-for-the-web
+### git@github.com:tvogels/accelerometer-stream.git
