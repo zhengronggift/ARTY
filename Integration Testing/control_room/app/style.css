@@ -7,7 +7,6 @@
 html,body{
     width: 100%;
     height: 100%;
-    background-color: #1CA26C;
     overflow: hidden;
 }
 
@@ -17,6 +16,7 @@ html,body{
 }
 
 .fa{
+    background-color: DodgerBlue;
     padding: 26px 35px;
     border-radius: 3px;
     border: 1px solid #eeeeee;
@@ -30,7 +30,7 @@ html,body{
 }
 
 .fa:hover{
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.7);
+    background-color: RoyalBlue;
 }
 
 .fa:first-of-type{

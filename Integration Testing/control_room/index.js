@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var io = require('socket.io')(app.listen(8080));
+var io = require('socket.io')(app.listen(8000));
 var five = require('johnny-five');
 
 //Setting the path to static assets
