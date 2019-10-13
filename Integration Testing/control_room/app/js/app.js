@@ -20,6 +20,16 @@ function moveReverse(){
     socket.emit('reverse');
 }
 
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+
 document.getElementById('forward').onclick = moveForward;
 document.getElementById('right').onclick = turnRight;
 document.getElementById('left').onclick = turnLeft;
