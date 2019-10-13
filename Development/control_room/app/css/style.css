@@ -1,0 +1,19 @@
+
+.container{
+    padding-top: 10%;
+}
+.card{
+    background-color: DodgerBlue;
+    margin-top: 15px;
+    padding: 5%;
+    border: 1px solid #eeeeee;
+    font-size: auto;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+.card:hover{
+    background-color: RoyalBlue;
+}
+
