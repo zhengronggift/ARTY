@@ -1,3 +1,18 @@
+10/14/19
+**********************************
+**Documentation for C on Arduino**
+**********************************
+
+-Added one more Arduino Nano that responsible for communication with Raspberry Pi
+-The Arduino Nano that connected with Raspberry Pi is running StandardFirmata for motor control
+
+********************************************
+**Documentation for NodeJS on Raspberry Pi**
+********************************************
+
+-Got the NodeJS work with motors (moving forward, left, right, and stop)
+-Alarms are also implemented on the user interface for notification (used Text to Speech) 
+
 10/7/19
 **********************************
 **Documentation for C on Arduino**
