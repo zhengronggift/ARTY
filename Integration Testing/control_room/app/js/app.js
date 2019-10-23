@@ -1,4 +1,6 @@
 var socket = io();
+var x = document.getElementById("myAudio"); 
+var x2 = document.getElementById("myAudio2"); 
 
 function stop(){
     socket.emit('stop');
@@ -20,14 +22,17 @@ function moveReverse(){
     socket.emit('reverse');
 }
 
-var x = document.getElementById("myAudio"); 
-
 function playAudio() { 
   x.play(); 
 } 
 
+function playAudio2() { 
+  x2.play(); 
+} 
+
 function pauseAudio() { 
   x.pause(); 
+  x2.pause(); 
 } 
 
 document.getElementById('forward').onclick = moveForward;
