@@ -23,12 +23,12 @@ uint16_t unThrottleCenter = TRC_NEUTRAL;
 #define GEAR_IDLE 1
 #define GEAR_FULL 2
 
-#define PWM_SPEED_LEFT 6
-#define PWM_SPEED_RIGHT 7
-#define LEFT1 4
-//#define LEFT2 6
-#define RIGHT1 5
-//#define RIGHT2 8
+#define PWM_SPEED_LEFT 5
+#define PWM_SPEED_RIGHT 6
+#define LEFT1 7
+#define LEFT2 8
+#define RIGHT1 4
+#define RIGHT2 9
 
 //#define PROGRAM_PIN 9
 // Assign channel pins
@@ -93,9 +93,9 @@ void setup()
   pinMode(PWM_SPEED_LEFT,OUTPUT);
   pinMode(PWM_SPEED_RIGHT,OUTPUT);
   pinMode(LEFT1,OUTPUT);
- // pinMode(LEFT2,OUTPUT);
+  pinMode(LEFT2,OUTPUT);
   pinMode(RIGHT1,OUTPUT);
- // pinMode(RIGHT2,OUTPUT);
+  pinMode(RIGHT2,OUTPUT);
    pinMode(12,OUTPUT);
    pulse_time =millis() ;
   //pinMode(PROGRAM_PIN,INPUT);
@@ -246,41 +246,41 @@ void loop()
     gOldGear = gGear;
 
     digitalWrite(LEFT1,LOW);
-  //  digitalWrite(LEFT2,LOW);
+    digitalWrite(LEFT2,LOW);
     digitalWrite(RIGHT1,LOW);
-  //  digitalWrite(RIGHT2,LOW);
+    digitalWrite(RIGHT2,LOW);
 
     switch(gDirection)
     {
     case DIRECTION_FORWARD:
-      digitalWrite(LEFT1,HIGH);
-    //  digitalWrite(LEFT2,HIGH);
-      digitalWrite(RIGHT1,HIGH);
-    //  digitalWrite(RIGHT2,HIGH);
+      digitalWrite(LEFT1,LOW);
+      digitalWrite(LEFT2,HIGH);
+      digitalWrite(RIGHT1,LOW);
+      digitalWrite(RIGHT2,HIGH);
       break;
-  //  case DIRECTION_REVERSE:
-   //   digitalWrite(LEFT1,HIGH);
-   //   digitalWrite(LEFT2,LOW);
-   //   digitalWrite(RIGHT1,HIGH);
-   //   digitalWrite(RIGHT2,LOW);
-   //   break;
+    case DIRECTION_REVERSE:
+      digitalWrite(LEFT1,HIGH);
+      digitalWrite(LEFT2,LOW);
+      digitalWrite(RIGHT1,HIGH);
+      digitalWrite(RIGHT2,LOW);
+      break;
     case DIRECTION_ROTATE_RIGHT:
       digitalWrite(LEFT1,HIGH);
-   //   digitalWrite(LEFT2,LOW);
+      digitalWrite(LEFT2,LOW);
       digitalWrite(RIGHT1,LOW);
-   //   digitalWrite(RIGHT2,HIGH);
+      digitalWrite(RIGHT2,HIGH);
       break;
     case DIRECTION_ROTATE_LEFT:
       digitalWrite(LEFT1,LOW);
-  //    digitalWrite(LEFT2,HIGH);
+      digitalWrite(LEFT2,HIGH);
       digitalWrite(RIGHT1,HIGH);
-  //    digitalWrite(RIGHT2,LOW);
+      digitalWrite(RIGHT2,LOW);
       break;
     case DIRECTION_STOP:
       digitalWrite(LEFT1,LOW);
- //     digitalWrite(LEFT2,LOW);
+      digitalWrite(LEFT2,LOW);
       digitalWrite(RIGHT1,LOW);
- //     digitalWrite(RIGHT2,LOW);
+      digitalWrite(RIGHT2,LOW);
       break;
     }
   }
