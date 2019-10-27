@@ -18,8 +18,8 @@ var board = new five.Board({
 board.on('ready', function () {
     var speed, commands, motors;
     motors = {
-        a: new five.Motor([6, 2, 3]),
-        b: new five.Motor([7, 4, 5])
+        a: new five.Motor([5, 7, 8]),
+        b: new five.Motor([6, 4, 9])
     };
 
     commands = null;
@@ -33,13 +33,13 @@ board.on('ready', function () {
         });
 
         socket.on('start', function () {
-            speed = 150;
+            speed = 200;
             motors.a.fwd(speed);
             motors.b.fwd(speed);
         });
 
         socket.on('reverse', function () {
-            speed = 120;
+            speed = 200;
             motors.a.rev(speed);
             motors.b.rev(speed);
         });
