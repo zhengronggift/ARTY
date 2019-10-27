@@ -39,4 +39,4 @@ document.getElementById('forward').onclick = moveForward;
 document.getElementById('right').onclick = turnRight;
 document.getElementById('left').onclick = turnLeft;
 document.getElementById('reverse').onclick = moveReverse;
-document.getElementById('stop').onclick = moveReverse;
+document.getElementById('stop').onclick = stop;

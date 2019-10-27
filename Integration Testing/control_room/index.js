@@ -18,8 +18,8 @@ var board = new five.Board({
 board.on('ready', function () {
     var speed, commands, motors;
     motors = {
-        a: new five.Motor([12, 4]),
-        b: new five.Motor([13, 5])
+        a: new five.Motor([6, 2, 3]),
+        b: new five.Motor([7, 4, 5])
     };
 
     commands = null;
@@ -28,8 +28,8 @@ board.on('ready', function () {
     io.on('connection', function (socket) {
         socket.on('stop', function () {
 	    speed = 120;
-            motors.a.rev(speed);
-            motors.b.rev(speed);
+            motors.a.brake();
+            motors.b.brake();
         });
 
         socket.on('start', function () {
