@@ -8,7 +8,11 @@ from http import server
 PAGE="""\
 <html>
 <head>
+<<<<<<< HEAD
 <title>Raspberry Pi</title>
+=======
+<title>Raspberry Pi - Surveillance Camera</title>
+>>>>>>> refs/remotes/origin/master
 </head>
 <body>
 <center><h1>Raspberry Pi - ARTY Camera</h1></center>
