@@ -18,8 +18,9 @@ var board = new five.Board({
 board.on('ready', function () {
     var speed, commands, motors;
     motors = {
-        a: new five.Motor([5, 7, 8]),
-        b: new five.Motor([6, 4, 9])
+        a: new five.Motor([4, 5, 6]),
+        b: new five.Motor([7, 8, 9]),
+	c: new five.Motor([10, 11, 12])
     };
 
     commands = null;
@@ -30,18 +31,21 @@ board.on('ready', function () {
 	    speed = 120;
             motors.a.brake();
             motors.b.brake();
+            motors.c.brake();
         });
 
         socket.on('start', function () {
-            speed = 200;
+            speed = 255;
             motors.a.fwd(speed);
             motors.b.fwd(speed);
+            motors.c.fwd(speed);
         });
 
         socket.on('reverse', function () {
-            speed = 200;
+            speed = 255;
             motors.a.rev(speed);
             motors.b.rev(speed);
+            motors.c.rev(speed);
         });
 
         socket.on('left', function () {
@@ -49,6 +53,7 @@ board.on('ready', function () {
             var bSpeed = 50;
             motors.a.fwd(aSpeed);
             motors.b.rev(bSpeed);
+            motors.c.fwd(aSpeed);
         });
 
         socket.on('right', function () {
@@ -56,6 +61,7 @@ board.on('ready', function () {
             var bSpeed = 220;
             motors.a.rev(aSpeed);
             motors.b.fwd(bSpeed);
+            motors.c.fwd(bSpeed);
         });
     });
 });
