@@ -1,3 +1,20 @@
+11/2/19
+**********************************
+**Documentation for C on Arduino**
+**********************************
+-Modified the code to work with 3 VNH2SP30 Motor Shield 
+-Control 3 motors
+
+********************************************
+**Documentation for NodeJS on Raspberry Pi**
+********************************************
+-Added camera stream to the Pi by using Python, framed the output stream port to user interface
+on HTML
+-Implement DHT11 Humidity/Temperature sensor, the reading is done every 3 seconds and the user 
+interface will update the values
+-Added front end design to combine the camera stream, control buttons, and sensor readings to
+one page
+
 10/14/19
 Demonstration of dual control with RC Controller and WiFi Web Interface:
 https://youtu.be/cTQwlnHl9b0
