@@ -243,40 +243,37 @@
 					</audio>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col"></div>
-                                            <div class="col">
-                                                <i class="d-flex mb-2 fa fa-angle-up" id="forward"></i>
-                                            </div>
-                                            <div class="col"></div>
-                                        </div>
                                         <div class="row justify-content-center">
-                                            <div class="col">
-                                                <i class="d-flex mb-2 fa fa-angle-left" id="left"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="d-flex mb-2 fa fa-angle-down" id="reverse"></i>
-                                            </div>
-                                            <div class="col">
-                                                <i class="fa fa-angle-right" id="right"></i>
-                                            </div>
+					    <img src="http://10.12.86.57:8081/stream.mjpg" width="440" height="340">
                                         </div>
-                                        <div class="row justify-content-center">
-                                            <div class="col"></div>
-                                            <div class="col">
-                                                <i class="fa mb-2" id="stop">Stop</i>
+					<div class="row justify-content-center">
+						<div class="btn btn-primary btn-circle btn-lg">
+							<i class="fas fa-angle-left" id="left"></i>
+                 		 		</div>
+						<div class="btn btn-primary btn-circle btn-lg">
+                    					<i class="fas fa-angle-up" id="forward"></i>
+                 		 		</div>
+						<div class="btn btn-primary btn-circle btn-lg">	
+							<i class="fas fa-angle-down" id="reverse"></i>
+                 		 		</div>
+						<div class="btn btn-primary btn-circle btn-lg">
+							<i class="fas fa-angle-right" id="right"></i>
+                 		 		</div>
+						<div class="btn btn-primary btn-circle btn-lg">
+							<i class="fas fa-stop" id="stop"></i>
+                 		 		</div>
+					</div>
+					<div class="row justify-content-center">
+		                            <div class="btn btn-primary btn-circle btn-lg">
+                                                <i class="fas fa-play" onclick="playAudio()"></i>
                                             </div>
-                                            <div class="col"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <i class="fa mb-2" onclick="playAudio()">For Public</i>
+						<p>For Public</p>
+                                            <div class="btn btn-primary btn-circle btn-lg">
+                                                <i class="fas fa-play" onclick="playAudio2()"></i>
                                             </div>
-                                            <div class="col-6">
-                                                <i class="fa mb-2" onclick="playAudio2()">For Victim</i>
-                                            </div>
-                                        </div>
-                                    </div>
+						<p>For Victim</p>
+                                    	</div>
+					</div>
                                 </div>
                             </div>
 
@@ -290,7 +287,7 @@
                                     <!-- Card Body -->
                                     <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <center><img src="http://10.53.106.49:8081/stream.mjpg" width="640" height="480"></center>
+                                            <center><img src="http://10.12.86.57:8081/stream.mjpg" width="440" height="440"></center>
                                         </div>
 
                                     </div>
