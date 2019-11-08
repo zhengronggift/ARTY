@@ -1,0 +1,64 @@
+// Define pins in Airduino Nano
+#define RED_LED 6
+#define BLUE_LED 5
+#define GREEN_LED 9
+
+// LED brightness: maximum=255
+int brightness = 255;
+
+// Brightness initial value
+int gBright = 0;
+int rBright = 0;
+int bBright = 0;
+// Control fade speed here. Decrease value to increase fade speed.
+int fadeSpeed = 0;
+
+// Setup function. Set Arduino's output pins.
+void setup() {
+   pinMode(GREEN_LED, OUTPUT);
+   pinMode(RED_LED, OUTPUT);
+   pinMode(BLUE_LED, OUTPUT);
+}
+
+// Turn RED LED to maximum brightness
+void TurnOn_RED() { 
+   for (int i = 0; i < 256; i++) {
+       analogWrite(RED_LED, rBright);
+       rBright +=1;
+       delay(fadeSpeed);
+   }
+}
+// Turn BLUE LED to maximum brightness
+void TurnOn_BLUE() { 
+    
+    for (int i = 0; i < 256; i++) {
+       analogWrite(BLUE_LED, bBright);
+       bBright += 1;
+       delay(fadeSpeed);
+    } 
+
+}
+
+// Turn OFF LEDs
+void TurnOff() {
+   for (int i = 0; i < 256; i++) {
+       analogWrite(GREEN_LED, brightness);
+       analogWrite(RED_LED, brightness);
+       analogWrite(BLUE_LED, brightness);
+       brightness -= 1;
+       delay(fadeSpeed);
+   }
+}
+
+// Loop for Police Lighting effect
+void loop() {
+
+TurnOn_RED();
+   delay(200);
+   TurnOff();
+   delay(50);
+   TurnOn_BLUE();
+   delay(200);
+   TurnOff();
+   delay(50);
+}
