@@ -17,10 +17,13 @@ var board = new five.Board({
 
 board.on('ready', function () {
     var speed, commands, motors;
+    var setPwm = new five.Led(8);
+    var setPwm2 = new five.Led(9);
+    var setPwm3 = new five.Led(10);
     motors = {
-        a: new five.Motor([4, 5, 6]),
-        b: new five.Motor([7, 8, 9]),
-	c: new five.Motor([10, 11, 12])
+        a: new five.Motor([0, 2, 3]),
+        b: new five.Motor([0, 4, 5]),
+	c: new five.Motor([0, 6, 7])
     };
 
     commands = null;
@@ -32,10 +35,16 @@ board.on('ready', function () {
             motors.a.brake();
             motors.b.brake();
             motors.c.brake();
+	    setPwm.off();
+	    setPwm2.off();
+	    setPwm3.off();
         });
 
         socket.on('start', function () {
             speed = 255;
+	    setPwm.on();
+	    setPwm2.on();
+	    setPwm3.on();
             motors.a.fwd(speed);
             motors.b.fwd(speed);
             motors.c.fwd(speed);
@@ -43,6 +52,9 @@ board.on('ready', function () {
 
         socket.on('reverse', function () {
             speed = 255;
+	    setPwm.on();
+	    setPwm2.on();
+	    setPwm3.on();
             motors.a.rev(speed);
             motors.b.rev(speed);
             motors.c.rev(speed);
@@ -51,6 +63,9 @@ board.on('ready', function () {
         socket.on('left', function () {
             var aSpeed = 220;
             var bSpeed = 50;
+	    setPwm.on();
+	    setPwm2.on();
+	    setPwm3.on();
             motors.a.fwd(aSpeed);
             motors.b.rev(bSpeed);
             motors.c.fwd(aSpeed);
@@ -59,6 +74,9 @@ board.on('ready', function () {
         socket.on('right', function () {
             var aSpeed = 50;
             var bSpeed = 220;
+	    setPwm.on();
+	    setPwm2.on();
+	    setPwm3.on();
             motors.a.rev(aSpeed);
             motors.b.fwd(bSpeed);
             motors.c.fwd(bSpeed);
