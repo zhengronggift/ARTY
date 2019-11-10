@@ -73,7 +73,22 @@ uint8_t gOldDirection = DIRECTION_STOP;
 
 uint8_t gMode = MODE_RUN;
 
-unsigned long pulse_time  ;
+unsigned long pulse_time;
+
+// Define pins in Airduino Nano
+#define RED_LED 13
+#define BLUE_LED 'A0'
+#define GREEN_LED 'A1'
+
+// LED brightness: maximum=255
+int brightness = 255;
+
+// Brightness initial value
+int gBright = 0;
+int rBright = 0;
+int bBright = 0;
+// Control fade speed here. Decrease value to increase fade speed.
+int fadeSpeed = 0;
 
 void setup()
 {
@@ -99,6 +114,10 @@ void setup()
   pinMode(EN_PIN_2, OUTPUT);
   digitalWrite(EN_PIN_1, HIGH);
   digitalWrite(EN_PIN_2, HIGH); 
+
+   pinMode(GREEN_LED, OUTPUT);
+   pinMode(RED_LED, OUTPUT);
+   pinMode(BLUE_LED, OUTPUT);
 }
 
 void loop()
@@ -242,6 +261,14 @@ void loop()
       digitalWrite(RIGHT2,HIGH);
       digitalWrite(MIDLE1,LOW);
       digitalWrite(MIDLE2,HIGH);
+      TurnOn_RED();
+      delay(200);
+      TurnOff();
+      delay(50);
+      TurnOn_BLUE();
+      delay(200);
+      TurnOff();
+      delay(50);
       break;
     case DIRECTION_REVERSE:
       digitalWrite(LEFT1,HIGH);
@@ -250,6 +277,14 @@ void loop()
       digitalWrite(RIGHT2,LOW);
       digitalWrite(MIDLE1,HIGH);
       digitalWrite(MIDLE2,LOW);
+      TurnOn_BLUE();
+      delay(200);
+      TurnOff();
+      delay(50);
+      TurnOn_RED();
+      delay(200);
+      TurnOff();
+      delay(50);
       break;
     case DIRECTION_ROTATE_RIGHT:
       digitalWrite(LEFT1,LOW);
@@ -258,6 +293,10 @@ void loop()
       digitalWrite(MIDLE2,HIGH);
       digitalWrite(RIGHT1,LOW);
       digitalWrite(RIGHT2,LOW);
+      TurnOn_RED();
+      delay(200);
+      TurnOff();
+      delay(50);
       break;
     case DIRECTION_ROTATE_LEFT:
       digitalWrite(LEFT1,LOW);
@@ -266,6 +305,10 @@ void loop()
       digitalWrite(MIDLE2,HIGH);
       digitalWrite(RIGHT1,LOW);
       digitalWrite(RIGHT2,HIGH);
+      TurnOn_BLUE();
+      delay(200);
+      TurnOff();
+      delay(50);
       break;
     case DIRECTION_STOP:
       digitalWrite(LEFT1,LOW);
@@ -310,4 +353,34 @@ void calcSteering()
     unSteeringInShared = (uint16_t)(micros() - ulSteeringStart);
     bUpdateFlagsShared |= STEERING_FLAG;
   }
+}
+
+// Turn RED LED to maximum brightness
+void TurnOn_RED() { 
+   for (int i = 0; i < 256; i++) {
+       analogWrite(RED_LED, rBright);
+       rBright +=1;
+       delay(fadeSpeed);
+   }
+}
+// Turn BLUE LED to maximum brightness
+void TurnOn_BLUE() { 
+
+    for (int i = 0; i < 256; i++) {
+       analogWrite(BLUE_LED, bBright);
+       bBright += 1;
+       delay(fadeSpeed);
+    } 
+
+}
+
+// Turn OFF LEDs
+void TurnOff() {
+   for (int i = 0; i < 256; i++) {
+       analogWrite(GREEN_LED, brightness);
+       analogWrite(RED_LED, brightness);
+       analogWrite(BLUE_LED, brightness);
+       brightness -= 1;
+       delay(fadeSpeed);
+   }
 }
