@@ -117,28 +117,8 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Team ARTY</span>
-                                    <img class="img-profile rounded-circle" src="/images/Box Mockup.jpg">
-                                </a>
-                                <!-- Dropdown - User Information -->
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </a>
-                                </div>
+                                    <img class="img-profile rounded-circle" src="/images/Box_Mockup.jpg">
+                                </a>                             
                             </li>
 
                         </ul>
@@ -148,7 +128,6 @@
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h1 class="h3 mb-0 text-gray-800">Control Room</h1>
@@ -263,16 +242,21 @@
 							<i class="fas fa-stop" id="stop"></i>
                  		 		</div>
 					</div>
-					<div class="row justify-content-center">
-		                            <div class="btn btn-primary btn-circle btn-lg">
-                                                <i class="fas fa-play" onclick="playAudio()"></i>
-                                            </div>
-						<p>For Public</p>
-                                            <div class="btn btn-primary btn-circle btn-lg">
-                                                <i class="fas fa-play" onclick="playAudio2()"></i>
-                                            </div>
-						<p>For Victim</p>
-                                    	</div>
+
+                  <div class="my-2 row justify-content-center">
+                  <div class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-play" onclick="playAudio()"></i>
+                    </span>
+                    <span class="text">For Public</span>
+                  </div>
+                  <div class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-play" onclick="playAudio2()"></i>
+                    </span>
+                    <span class="text">For Victim</span>
+		  </div>
+		  </div>
 					</div>
                                 </div>
                             </div>
@@ -282,12 +266,12 @@
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Camera</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">AI Camera</h6>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <center><img src="http://10.12.86.57:8081/stream.mjpg" width="440" height="440"></center>
+                                            <center><img src="http://10.12.86.57:8081/stream.mjpg" width="440" height="450"></center>
                                         </div>
 
                                     </div>
@@ -310,19 +294,103 @@
                                         <h6 class="m-0 font-weight-bold text-primary">The Project</h6>
                                     </div>
                                     <div class="card-body">
-                                        <p>The Automated Rescue Transportation Unit (ARTY), a chest sized device, is designed
+
+                                            <div class="col">
+                                                <div class="card shadow mb-4">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">Design</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                            </div>
+                                                            <div class="col">
+                                                                <p>
+
+The Automated Rescue Transportation Unit (ARTY), a chest sized device, is designed
                                             for a quick field response of helpless victims in need of an auxiliary rescue. ARTY is also
                                             designed to be portable and ideal for pool related activities (i.e. public pools &amp; waterparks).
                                             When dispatched, ARTY is steered towards the drowning victim from a radio-controlled
                                             transmitter or using wireless technology. Moreover, using text-to-speech technology, ARTY
                                             notifies close individuals of a possible drowning. This device is also designed to sustain victims
                                             up to 125 lbs., and shaped as a catamaran watercraft, in order to optimize buoyancy and
-                                            device control.</p>
-                                    </div>
-                                </div>
+                                            device control.
+								</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                            </div>
-                        </div>
+                                           
+                                                <div class="card shadow mb-4">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">Circuit Schematic</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                            </div>
+                                                            <div class="col">
+                                                                <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
+
+In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
+
+								</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                <div class="card shadow mb-4">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">Programming</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                            </div>
+                                                            <div class="col">
+                                                                <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
+
+In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
+
+								</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                				<div class="card shadow mb-4">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">Testing</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                           
+                                                                <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  
+                                                           
+                                                           
+                                                                <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
+
+In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
+
+								</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+					</div>	
+                                             
+
                         <div class="row">
                             <div class="col mb-4">
 
@@ -345,10 +413,8 @@
                                                             </div>
                                                             <div class="col">
                                                                 <p>CS Major</p>
+								<a href="https://www.linkedin.com/in/dlantaylor/">LinkedIn</a>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <a href="https://www.linkedin.com/in/dlantaylor/">linkedin</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -365,10 +431,8 @@
                                                             </div>
                                                             <div class="col">
                                                                 <p>EE Major</p>
+        							<a href="https://www.linkedin.com/in/john-tarakmi/">LinkedIn</a>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <a href="https://www.linkedin.com/in/john-tarakmi/">linkedin</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -387,11 +451,9 @@
                                                             </div>
                                                             <div class="col">
                                                                 <p>EE Major</p>
+								<a href="https://www.linkedin.com/in/rodrigo-jordao">LinkedIn</a>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <a href="https://www.linkedin.com/in/rodrigo-jordao">linkedin</a>
-                                                        </div>
+                                                        </div>       
                                                     </div>
                                                 </div>
                                             </div>
@@ -407,11 +469,9 @@
                                                             </div>
                                                             <div class="col">
                                                                 <p>CE Major</p>
+								<a href="https://www.linkedin.com/in/rong-zheng-01b856152">LinkedIn</a>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <a href="https://www.linkedin.com/in/rong-zheng-01b856152">linkedin</a>
-                                                        </div>
+                                                        </div>  
                                                     </div>
                                                 </div>
                                             </div>
@@ -449,29 +509,9 @@
             <i class="fas fa-angle-up"></i>
         </a>
 
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
