@@ -1,2 +1,1 @@
-#!/bin/sh
-vlc grab_on_handle.mp3 
+cvlc grab_on_vehicle.mp3 
