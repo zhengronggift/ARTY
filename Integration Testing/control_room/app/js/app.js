@@ -23,11 +23,11 @@ function moveReverse(){
 }
 
 function playAudio() { 
-  x.play(); 
+    socket.emit('audio1');
 } 
 
 function playAudio2() { 
-  x2.play(); 
+    socket.emit('audio2');
 } 
 
 function pauseAudio() { 
@@ -40,3 +40,5 @@ document.getElementById('right').onclick = turnRight;
 document.getElementById('left').onclick = turnLeft;
 document.getElementById('reverse').onclick = moveReverse;
 document.getElementById('stop').onclick = stop;
+document.getElementById('playAudio').onclick = playAudio;
+document.getElementById('playAudio2').onclick = playAudio2;

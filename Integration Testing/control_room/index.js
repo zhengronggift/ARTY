@@ -81,5 +81,15 @@ board.on('ready', function () {
             motors.b.fwd(bSpeed);
             motors.c.fwd(bSpeed);
         });
+
+        socket.on('audio1', function () {
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./publicAudio.sh']);
+        });
+
+        socket.on('audio2', function () {
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./victimAudio.sh']);
+        });
     });
 });
