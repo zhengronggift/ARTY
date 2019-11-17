@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+   	if($_SERVER["REQUEST_METHOD"] == "POST") {
+      	// username and password sent from form 
+      
+      	$myusername = $_POST['username'];
+      	$mypassword = $_POST['password']; 
+      	$count = mysqli_num_rows($result);
+      
+      	// If result matched $myusername and $mypassword, table row must be 1 row
+		
+      	if($myusername == 'rong' && $mypassword == 'abc') {
+         	$_SESSION['id'] = $myusername;
+		$session_value = $_SESSION['id']; 
+         
+      	}else {
+		$_SESSION['id'] = '';
+      	}
+   }
+?>
+
 <html lang="en">
     <head>
 
@@ -243,7 +264,12 @@
                       			<i class="fas fa-play" id="playAudio2"></i>
                     			</span>
                     			<span class="text" id="playAudio2">For Victim</span>
-		  			</div> 
+		  			</div> 	
+               <form action = "" method = "post">
+                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
+                  <input type = "submit" value = " Submit "/><br />
+               </form>
 				</div>                
                         </div>
 
@@ -508,6 +534,39 @@ In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta en
         <script src="js/temperature.js"></script>
         <script src="js/power.js"></script>
         <script src="js/sb-admin-2.min.js"></script>
+	<script>
+		var myvar='<?php echo $session_value;?>';
+		var lb = document.getElementById('l-b');
+		var fb = document.getElementById('f-b');
+		var rvb = document.getElementById('rv-b');
+		var rb = document.getElementById('r-b');
+		var sb = document.getElementById('s-b');
+		var au1 = document.getElementById('au1');
+		var au2 = document.getElementById('au2');		
+		function invisible(){
+			if (myvar != 'rong')
+			{
+				lb.style.display = "none";
+				fb.style.display = "none";
+				rvb.style.display = "none";
+				rb.style.display = "none";
+				sb.style.display = "none";
+				au1.style.display = "none";
+				au2.style.display = "none";
+			}
+			else if (myvar == 'rong')
+			{
+				lb.style.display = "";
+				fb.style.display = "";
+				rvb.style.display = "";
+				rb.style.display = "";
+				sb.style.display = "";
+				au1.style.display = "";
+				au2.style.display = "";
+			}
+		}
+		invisible();
+	</script>
     </body>
 
 </html>
