@@ -291,10 +291,10 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                                <img src="project_image/ARTY_img1.png" alt="'picture'" width="400" height="400">   
                                                             </div>
                                                             <div class="col">
-                                                                <p>
+                                                                <p><font size="5">
 
 The Automated Rescue Transportation Unit (ARTY), a chest sized device, is designed
                                             for a quick field response of helpless victims in need of an auxiliary rescue. ARTY is also
@@ -303,7 +303,7 @@ The Automated Rescue Transportation Unit (ARTY), a chest sized device, is design
                                             transmitter or using wireless technology. Moreover, using text-to-speech technology, ARTY
                                             notifies close individuals of a possible drowning. This device is also designed to sustain victims
                                             up to 125 lbs., and shaped as a catamaran watercraft, in order to optimize buoyancy and
-                                            device control.
+                                            device control.</font>
 								</p>
                                                             </div>
                                                         </div>
@@ -320,15 +320,12 @@ The Automated Rescue Transportation Unit (ARTY), a chest sized device, is design
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                                <img src="project_image/Schematic.png" alt="'picture'" width="400" height="400">   
                                                             </div>
                                                             <div class="col">
-                                                                <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
-
-In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
-
-								</p>
+                                                                <p> <font size="5">
+For the circuit, we have a dual control system that runs with two Arduino Nanos. One Nano is responsible for RC control. The module is connected to a RC receiver. When the signal is received from the RC controller, the microprocessor will send signals to the output pins to control the motor drivers. The other Nano is controlled by a Raspberry Pi through serial communication. When the Pi receives commands from user interface, it will send signals to the Nano and move ARTY accordingly as well. The main challenge of the circuit is that both Nanos outputs are connected to same input pins of the motor drivers. The microprocessors are running the risk of shorting out each other in this case. Thus, we used 3 IC7486, or XOR logic gates, for the input pins of the microcontrollers and output signals to the motor drivers. The XOR gate returns true when the inputs are odd and false when both inputs are high. This will ensure the safety of the microprocessors and motor drivers. 
+								</font></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -341,13 +338,11 @@ In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta en
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <img src="images/ARTY_1.jpg" alt="'picture'" width="400" height="400">   
+                                                                <img src="project_image/everything4.jpg" alt="'picture'" width="400" height="400">   
                                                             </div>
                                                             <div class="col">
-                                                                <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
-
-In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
+                                                                <p><font size="5">
+Following is the prgramming tools we used for this project: Node.js, Python, C, Nginx, Shell Script, Bootstrap, HTML, Javascript, CSS, and Git. The Node.js runs majority of backend tasks, which includes control the motor drivers and get the sensor values. The Python is reponsible for the AI calculation and stream it to a network port. Nginx is a server we use on the Pi to manage the user requests. The Arduino Nanos are running in C. The Shell Script is used for glue everything together on the Pi when some of the programs do not like to cooperate (ie. running speaker on server, get some of the Python program to work with Node.js). Git is used for version control. And of course, this site is running with Bootstrap that allows the users to view it on multiple platform, which includes mobile devices we originally target for.    </font>
 
 								</p>
                                                             </div>
@@ -363,14 +358,11 @@ In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta en
                                                     <div class="card-body">
                                                         <div class="row">
                                                            
-                                                                <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>  
+                                                                <iframe width="420" height="345" src="project_image/4th_test_15_lbs.mp4"></iframe>  <iframe width="420" height="345" src="project_image/4th_test-40lbs.mp4"></iframe>  <iframe width="420" height="345" src="project_image/4th_test_50lbs.mp4"></iframe> <iframe width="420" height="345" src="project_image/U-Turn.mp4"> <iframe width="420" height="345" src="project_image/first_run.mp4"></iframe>  <iframe width="420" height="345" src="project_image/forward.mp4"></iframe>   <iframe width="420" height="345" src="project_image/test_drive.mp4"></iframe><iframe width="420" height="345" src="project_image/reverse.mp4"></iframe> <iframe width="420" height="345" src="project_image/latest_test_dry.mp4"></iframe>    
                                                            
-                                                           
-                                                                <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget lectus purus. Morbi non fringilla massa. Nulla vel elementum mauris, nec mattis massa. Integer sit amet odio lectus. Integer lacinia fermentum metus at fermentum. Aliquam erat volutpat. Ut id ante nisi.
-
-In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta enim arcu, eleifend accumsan ex egestas ut. Integer lorem sapien, maximus ac ultrices nec, lobortis ac urna. Donec tristique mauris dui, vitae congue ipsum facilisis vel. Praesent porta faucibus risus, luctus rhoncus nulla pharetra auctor. Proin tristique aliquet ex, sed hendrerit tellus vehicula nec. Nunc malesuada at sapien quis tincidunt. Aliquam erat volutpat. Maecenas faucibus malesuada metus, vel volutpat odio malesuada vel. Duis sit amet mauris vel ex suscipit pharetra.
-
+                                                                <p><font size="5">
+For our pool test, we ran the ARTY unit multiple times. The unit moved forward, reverse, right, and left successfully. We added weights (15, 40, and 50 LBS) to the unit, and ARTY was able to carry the weights for couple rounds as well.
+</font>
 								</p>
                                                             </div>
                                                         </div>
@@ -378,9 +370,19 @@ In eget tortor posuere tellus venenatis scelerisque eu ac tellus. Etiam porta en
 					</div>	
                                              
 
-                        <div class="row">
-                            <div class="col mb-4">
-
+                				<div class="card shadow mb-4">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">Gallery</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                           
+                                                                <iframe width="420" height="345" src="project_image/20191113_145016.jpg"></iframe>  <iframe width="420" height="345" src="project_image/20191113_145038.jpg"></iframe>  <iframe width="420" height="345" src="project_image/20191113_145021.jpg"></iframe> <iframe width="420" height="345" src="project_image/ARTY_img1.png"> </iframe> <iframe width="420" height="345" src="project_image/ARTY_img2.png"></iframe><iframe width="420" height="345" src="project_image/AI.jpeg"></iframe> <iframe width="420" height="345" src="project_image/everything4.jpg"> <iframe width="420" height="345" src="project_image/battery_prep.jpg"></iframe> <iframe width="420" height="345" src="project_image/battery_internal.jpg"></iframe><iframe width="420" height="345" src="project_image/20191110_165639.jpg"> </iframe><iframe width="420" height="345" src="project_image/soldered.jpeg"></iframe><iframe width="420" height="345" src="project_image/in_water.jpeg"> </iframe><iframe width="420" height="345" src="project_image/on_water.jpeg"></iframe> <iframe width="420" height="345" src="project_image/cap_on_water.jpeg"></iframe> <iframe width="420" height="345" src="project_image/Schematic.png"> </iframe><iframe width="420" height="345" src="project_image/PCB_ARTY.png"></iframe> <iframe width="420" height="345" src="project_image/battery_prep.jpg"></iframe> <iframe width="420" height="345" src="project_image/drill_in.jpeg"></iframe> <iframe width="420" height="345" src="project_image/from_scratch.jpg"></iframe> <iframe width="420" height="345" src="project_image/home_depot.JPG"></iframe> <iframe width="420" height="345" src="project_image/paint.jpeg"></iframe> <iframe width="420" height="345" src="project_image/running_test.jpeg"></iframe> <iframe width="420" height="345" src="project_image/screw_in.JPG"></iframe> <iframe width="420" height="345" src="project_image/seal.jpeg"></iframe> <iframe width="420" height="345" src="project_image/white_capsule.jpg"></iframe> <iframe width="420" height="345" src="project_image/wires.jpg"></iframe> <iframe width="420" height="345" src="project_image/wirings.jpeg"></iframe>  <iframe width="420" height="345" src="project_image/IMG_20191017_170802.jpg"></iframe>  <iframe width="420" height="345" src="project_image/20191024_132037.jpg"></iframe>
+                                                           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+					</div>	
                                 <!-- Team Information -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3" id="team">
