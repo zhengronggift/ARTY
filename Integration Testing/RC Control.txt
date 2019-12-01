@@ -32,8 +32,8 @@ uint16_t unThrottleCenter = TRC_NEUTRAL;
 #define RIGHT2 9
 #define MIDLE1 11
 #define MIDLE2 12
-#define EN_PIN_1 A0
-#define EN_PIN_2 A1
+//#define EN_PIN_1 A0
+//#define EN_PIN_2 A1
 
 //#define PROGRAM_PIN 9
 // Assign channel pins
@@ -76,9 +76,9 @@ uint8_t gMode = MODE_RUN;
 unsigned long pulse_time;
 
 // Define pins in Airduino Nano
-#define RED_LED 13
-#define BLUE_LED 'A0'
-#define GREEN_LED 'A1'
+#define RED_LED A1
+#define BLUE_LED A2
+#define GREEN_LED A0
 
 // LED brightness: maximum=255
 int brightness = 255;
@@ -110,10 +110,10 @@ void setup()
   pinMode(PWM_SPEED_MIDLE,OUTPUT);
   pulse_time =millis() ;
   //pinMode(PROGRAM_PIN,INPUT);
-  pinMode(EN_PIN_1, OUTPUT);
-  pinMode(EN_PIN_2, OUTPUT);
-  digitalWrite(EN_PIN_1, HIGH);
-  digitalWrite(EN_PIN_2, HIGH); 
+ // pinMode(EN_PIN_1, OUTPUT);
+ // pinMode(EN_PIN_2, OUTPUT);
+ // digitalWrite(EN_PIN_1, HIGH);
+ // digitalWrite(EN_PIN_2, HIGH); 
 
    pinMode(GREEN_LED, OUTPUT);
    pinMode(RED_LED, OUTPUT);
@@ -131,6 +131,9 @@ void loop()
   static uint8_t bUpdateFlags;
   // fail_safe();
   // check shared update flags to see if any channels have a new signal
+//  analogWrite(RED_LED, 255);
+ // analogWrite(BLUE_LED, 0);
+ // analogWrite(GREEN_LED, 0);
   if(bUpdateFlagsShared)
   {
     noInterrupts(); // turn interrupts off quickly while we take local copies of the shared variables
@@ -261,14 +264,9 @@ void loop()
       digitalWrite(RIGHT2,HIGH);
       digitalWrite(MIDLE1,LOW);
       digitalWrite(MIDLE2,HIGH);
-      TurnOn_RED();
-      delay(200);
-      TurnOff();
-      delay(50);
-      TurnOn_BLUE();
-      delay(200);
-      TurnOff();
-      delay(50);
+      analogWrite(GREEN_LED, 255);
+      analogWrite(BLUE_LED, 0);
+      analogWrite(RED_LED, 0);
       break;
     case DIRECTION_REVERSE:
       digitalWrite(LEFT1,HIGH);
@@ -277,14 +275,9 @@ void loop()
       digitalWrite(RIGHT2,LOW);
       digitalWrite(MIDLE1,HIGH);
       digitalWrite(MIDLE2,LOW);
-      TurnOn_BLUE();
-      delay(200);
-      TurnOff();
-      delay(50);
-      TurnOn_RED();
-      delay(200);
-      TurnOff();
-      delay(50);
+      analogWrite(RED_LED, 255);
+      analogWrite(BLUE_LED, 0);
+      analogWrite(GREEN_LED, 0);
       break;
     case DIRECTION_ROTATE_RIGHT:
       digitalWrite(LEFT1,LOW);
@@ -293,10 +286,9 @@ void loop()
       digitalWrite(MIDLE2,HIGH);
       digitalWrite(RIGHT1,LOW);
       digitalWrite(RIGHT2,LOW);
-      TurnOn_RED();
-      delay(200);
-      TurnOff();
-      delay(50);
+      analogWrite(BLUE_LED, 255);
+      analogWrite(GREEN_LED, 0);
+      analogWrite(RED_LED, 0);
       break;
     case DIRECTION_ROTATE_LEFT:
       digitalWrite(LEFT1,LOW);
@@ -305,10 +297,9 @@ void loop()
       digitalWrite(MIDLE2,HIGH);
       digitalWrite(RIGHT1,LOW);
       digitalWrite(RIGHT2,HIGH);
-      TurnOn_BLUE();
-      delay(200);
-      TurnOff();
-      delay(50);
+      analogWrite(BLUE_LED, 255);
+      analogWrite(GREEN_LED, 0);
+      analogWrite(RED_LED, 0);
       break;
     case DIRECTION_STOP:
       digitalWrite(LEFT1,LOW);
@@ -317,6 +308,9 @@ void loop()
       digitalWrite(RIGHT2,LOW);
       digitalWrite(MIDLE1,LOW);
       digitalWrite(MIDLE2,LOW);
+      analogWrite(RED_LED, 255);
+      analogWrite(BLUE_LED, 0);
+      analogWrite(GREEN_LED, 0);
       break;
     }
   }
@@ -355,23 +349,20 @@ void calcSteering()
   }
 }
 
-// Turn RED LED to maximum brightness
-void TurnOn_RED() { 
-   for (int i = 0; i < 256; i++) {
-       analogWrite(RED_LED, rBright);
-       rBright +=1;
-       delay(fadeSpeed);
-   }
-}
-// Turn BLUE LED to maximum brightness
-void TurnOn_BLUE() { 
+void TurnOn() { 
+       analogWrite(RED_LED, 255);
+ 
+ //  for (int i = 0; i < 256; i++) {
+   //    analogWrite(BLUE_LED, bBright);
+     //  bBright += 1;
+      // delay(fadeSpeed);
+   //} 
 
-    for (int i = 0; i < 256; i++) {
-       analogWrite(BLUE_LED, bBright);
-       bBright += 1;
-       delay(fadeSpeed);
-    } 
-
+   //for (int i = 0; i < 256; i++) {
+     //  analogWrite(GREEN_LED, gBright);
+      // gBright +=1;
+      // delay(fadeSpeed);
+   //} 
 }
 
 // Turn OFF LEDs
