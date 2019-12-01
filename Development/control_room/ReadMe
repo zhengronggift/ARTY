@@ -1,0 +1,8 @@
+To get the html run with index.js:
+NodeJS should be installed on your PC
+Remove/Delete node_modules in control_room
+Open Terminal/Command prompt, cd into control_room directory (location for package.json), type in "npm install"
+The npm will install all the libraries required for your project 
+This will ensure the running environment for the program is stable (packages work differently in Mac, Window, and Linux)
+After node_modules is installed, type in "node index.js"
+Open web browser, go to 127.0.0.1:8000, your site should be active
