@@ -38,6 +38,8 @@ board.on('ready', function () {
 	    setPwm.off();
 	    setPwm2.off();
 	    setPwm3.off();
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./stop.sh']);
         });
 
         socket.on('start', function () {
@@ -48,6 +50,8 @@ board.on('ready', function () {
             motors.a.fwd(speed);
             motors.b.fwd(speed);
             motors.c.fwd(speed);
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./forward.sh']);
         });
 
         socket.on('reverse', function () {
@@ -58,6 +62,8 @@ board.on('ready', function () {
             motors.a.rev(speed);
             motors.b.rev(speed);
             motors.c.rev(speed);
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./reverse.sh']);
         });
 
         socket.on('left', function () {
@@ -69,6 +75,8 @@ board.on('ready', function () {
             motors.a.fwd(aSpeed);
             motors.b.rev(bSpeed);
             motors.c.fwd(aSpeed);
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./left.sh']);
         });
 
         socket.on('right', function () {
@@ -80,6 +88,8 @@ board.on('ready', function () {
             motors.a.rev(aSpeed);
             motors.b.fwd(bSpeed);
             motors.c.fwd(bSpeed);
+		var spawn = require("child_process").spawn;  
+		var process = spawn('sh',['./right.sh']);
         });
 
         socket.on('audio1', function () {
