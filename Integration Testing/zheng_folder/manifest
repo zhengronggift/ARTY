@@ -1,0 +1,12 @@
+code file:
+The folder contains the code that I used to get the sensor readings, motor control, user interface display, audio play, and camera stream.
+The "RC Control.txt" is the Arduino code used for RC receiver motor control. The code source is coming from "https://blogs.ntu.edu.sg/ps9888-2018-iceedge/design-specifications/software/". The code was used for a mini RC car control. I made a little modification to work with the 3 motor drivers and LED strips we have. The changes start from line 26-41 for pin changes, line 104-120 for setup, line 251-314 for execution. 
+The "index.js" is the main Node.Js application to run the major control for motors under user interface. The source for the motor control comes from "http://johnny-five.io/api/motor/". The source for the socket communication comes from "https://socket.io/docs/". I followed couple examples and glued the code together. 
+The "app.js" contains the functions to listen for the requests from the user interface and pass to index.js. The code can be done within index.js, but I think it's cleaner this way. 
+The "camera.py" is the software used for camera stream. The code source comes from "https://randomnerdtutorials.com/video-streaming-with-raspberry-pi-camera/". No changes were made.
+The "humidity.js" contains the code to read the sensor values every 3 seconds. The source comes from "https://www.npmjs.com/package/node-dht-sensor". I made a little adjustment from line 13-20 to save the file as notepad.
+The rest of files are shell scripts and mp3 file used for audio play (alarm indication). There's some strange things going on that the audio was not able to play through child process on Node.Js (tried omxplayer, aplay, etc), have to excute shell script to play it through vlc instead. My speculation is that I might damaged the speaker settings/libraries while removing the speech to text engines because the sound quality was not good. 
+
+design file:
+The "updated_circuit.PNG" is finalized circuit with all the parts for PCB design. 
+The "flowchart4.png" is a flowchart of the whole system. 
